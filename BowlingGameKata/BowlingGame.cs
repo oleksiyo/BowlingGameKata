@@ -41,15 +41,13 @@ namespace BowlingGameKata
             return score;
         }
 
-        public int Score2()
+       /* public int Score2()
         {
-            var score = 0;
-            var frame = 0;
             ScoreDetails scoreDetails = new ScoreDetails(0, 0);
 
             for (var i = 0; i < framesNumber; i++)
             {
-                List<IServices> listService = new List<IServices>
+                var listService = new List<IServices>
                                                   {
                                                       new SpareServices(listRolls, scoreDetails.frame),
                                                       new StrikeServices(listRolls, scoreDetails.frame),
@@ -66,7 +64,7 @@ namespace BowlingGameKata
                                         });
             }
             return scoreDetails.score;
-        }
+        }*/
 
         bool IsStrike(int frame)
         {
@@ -111,11 +109,9 @@ namespace BowlingGameKata
             EmptyHits(18);
             var score = bowlingGame.Score();
             score.Should().Be(7);
-
-            var score2 = bowlingGame.Score2();
-            score2.Should().Be(7);
         }
 
+      
         [Fact]
         public void should_be_score_17_when_frame_2_and_pins_4_5_6_2()
         {
@@ -126,10 +122,6 @@ namespace BowlingGameKata
             EmptyHits(16);
             var score = bowlingGame.Score();
             score.Should().Be(17);
-
-
-            var score2 = bowlingGame.Score2();
-            score2.Should().Be(17);
         }
 
         [Fact]
@@ -146,9 +138,6 @@ namespace BowlingGameKata
             EmptyHits(13);
             var score = bowlingGame.Score();
             score.Should().Be(34);
-
-            var score2 = bowlingGame.Score2();
-            score2.Should().Be(34);
         }
 
         [Fact]
@@ -162,9 +151,6 @@ namespace BowlingGameKata
 
             var score = bowlingGame.Score();
             score.Should().Be(18);
-
-            var score2 = bowlingGame.Score2();
-            score2.Should().Be(18);
         }
 
         [Fact]
@@ -179,9 +165,6 @@ namespace BowlingGameKata
 
             var score = bowlingGame.Score();
             score.Should().Be(26);
-
-            var score2 = bowlingGame.Score2();
-            score2.Should().Be(26);
         }
 
 
